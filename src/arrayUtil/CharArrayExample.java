@@ -32,7 +32,7 @@ public class CharArrayExample {
         char bob = 'b';
         for (int i1 = 0; i1 < bobArray.length; i++) {
             if (i1 + 2 < bobArray.length && bobArray[i1] == bob && bobArray[i1 + 2] == bob) {
-                isBob = !isBob;
+                isBob = true;
                 break;
             }
         }
