@@ -16,8 +16,8 @@ public class CharArrayExample {
         //2.պետք է գրել կոդ, որը կտպի մեջտեղի 2 սինվոլները։
 
         char[] chars2 = {'j', 'a', 'v', 'a', 'l', 'o', 'v', 'e' };
-        int x = (chars2.length-1) / 2;
-        System.out.print(chars2[x] );
+        int x = (chars2.length) / 2 - 1;
+        System.out.print(chars2[x]);
         System.out.print(chars2[x + 1]);
         System.out.println();
 
@@ -33,11 +33,11 @@ public class CharArrayExample {
 
         //4.Տպում ենք true եթե տեքստը պարունակում է bob բառը, բայց o-ի տեղը կարող է լինել ցանկացած սինվոլ։
 
-        char[] bobArray = {'b', 'a', 'b', 'o', 'l', 'a' };
+        char[] bobArray = {'b', 'a', 's', 'o', 'l', 'a' };
         boolean isBob = false;
         char b1 = 'b';
-        for (int i1 = 0; i1 < bobArray.length; i++) {
-            if (i1 + 2 < bobArray.length && bobArray[i1] == b1 && bobArray[i1 + 2] == b1) {
+        for (int j = 0; j < bobArray.length; j++) {
+            if (bobArray[j] == b1 && bobArray[j + 2] == b1) {
                 isBob = true;
                 break;
             }
@@ -54,6 +54,8 @@ public class CharArrayExample {
         }
     }
 }
+
+
 
 
 
