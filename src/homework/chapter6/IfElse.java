@@ -3,6 +3,8 @@ package homework.chapter6;
 public class IfElse {
     public static void main(String[] args) {
 
+        // else if работает оптимально по сравнению с иф иф иф...
+
         int month = 4; // Апрель
         String season;
         if (month == 12 || month == 1 || month == 2)
