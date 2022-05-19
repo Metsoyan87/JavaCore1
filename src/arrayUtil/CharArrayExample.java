@@ -33,11 +33,10 @@ public class CharArrayExample {
 
         //4.Տպում ենք true եթե տեքստը պարունակում է bob բառը, բայց o-ի տեղը կարող է լինել ցանկացած սինվոլ։
 
-        char[] bobArray = {'b', 'a', 's', 'o', 'l', 'a' };
+        char[] bobArray = {'b', 'h', 'b', 'i', 'n', 'o' };
         boolean isBob = false;
-        char b1 = 'b';
-        for (int j = 0; j < bobArray.length; j++) {
-            if (bobArray[j] == b1 && bobArray[j + 2] == b1) {
+        for (int j = 0; j < bobArray.length-2; j++) {
+            if (bobArray[j] == 'b' && bobArray[j + 2] == 'b') {
                 isBob = true;
                 break;
             }
