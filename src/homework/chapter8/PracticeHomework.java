@@ -3,18 +3,18 @@ package homework.chapter8;
 public class PracticeHomework {
 
     long convert(int minutes) {
-        long n = minutes * 60;
-        return n;
+        return minutes * 60;
+
     }
 
     int calcAge(int years) {
-        int n = years * 365;
-        return n;
+        return years * 365;
+
     }
 
     int nextNumber(int number) {
-        int n = number + 1;
-        return n;
+        return number + 1;
+
     }
 
     boolean isSameNum(int a, int b) {

@@ -11,12 +11,12 @@ public class ArrayUtil {
         return max;
     }
 
-    void length(int[] array) {
+    int length(int[] array) {
 
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
         }
-        System.out.println(" length " + array.length);
+        return array.length;
     }
 
     int min(int[] array) {
