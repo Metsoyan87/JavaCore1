@@ -31,11 +31,6 @@ public class BraceChecker {
                 }
             }
         }
-        for (int i = 0; i < stack.getArray().length; i++) {
-            char pop = stack.pop();
-            if (pop != '\u0000')
 
-                System.out.println("Error: opened " + pop + " but dont closed at " + i);
-        }
     }
 }
