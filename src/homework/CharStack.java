@@ -24,17 +24,5 @@ public class CharStack {
             return array[size--];
         }
     }
-
-    char[] getArray() {
-        return array;
-    }
-
-    public void setArray(char[] array) {
-        this.array = array;
-    }
-
-    public int getSize() {
-        return size;
-    }
 }
 
