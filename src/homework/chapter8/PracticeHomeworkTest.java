@@ -8,7 +8,7 @@ public class PracticeHomeworkTest {
         System.out.println(ph.nextNumber(15));
         System.out.println(ph.isSameNum(4, 5));
         System.out.println(ph.lessThanOrEqualToZero(32));
-        System.out.println(ph.reverseBool(false));
+        System.out.println(ph.reverseBool(true));
         System.out.println(ph.maxLength(new int[21], new int[14]));
     }
 }

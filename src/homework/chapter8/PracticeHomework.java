@@ -13,41 +13,28 @@ public class PracticeHomework {
     }
 
     int nextNumber(int number) {
-        return number + 1;
+        return ++number;
 
     }
 
     boolean isSameNum(int a, int b) {
-        if (a == b) {
-            return true;
-        } else {
+        return a == b;
 
-        }
-        return false;
     }
 
     boolean lessThanOrEqualToZero(int number) {
-        if (number <= 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return number <= 0;
+
     }
 
     boolean reverseBool(boolean value) {
-        if (value == true) {
-            return false;
-        } else {
-            return true;
-        }
+        return !value;
+
     }
 
     int maxLength(int[] array1, int[] array2) {
-        if (array1.length > array2.length) {
-            return array1.length;
-        }else {
-           return array2.length;
-        }
+        return array1.length > array2.length ? array1.length : array2.length;
+
     }
 
 }

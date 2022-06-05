@@ -1,10 +1,10 @@
 package homework.chapter7;
 
-public class Stack {
+public class CharStack {
     int stck[] = new int[10];
     int tos;
 
-    Stack() {
+    CharStack() {
         tos = -1;
     }
 
