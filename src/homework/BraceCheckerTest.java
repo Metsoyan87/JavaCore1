@@ -4,8 +4,8 @@ public class BraceCheckerTest {
 
     public static void main(String[] args) {
 
-        String text = "Hello (fr[om] Java";
-        BraceChecker braceChecker = new BraceChecker(text);
+        
+        BraceChecker braceChecker = new BraceChecker("Hello (fr[om] Java");
         braceChecker.check();
 
     }
