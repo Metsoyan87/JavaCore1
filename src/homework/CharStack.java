@@ -12,7 +12,7 @@ public class CharStack {
         if (size == array.length) {
             System.out.println("stack-ը վերջացավ");
         } else {
-            array[size + 1] = value;
+            array[++size] = value;
         }
         size++;
     }
