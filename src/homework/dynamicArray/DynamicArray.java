@@ -78,8 +78,14 @@ public class DynamicArray {
     // (նոր մասիվ պետք չէ սարքել)
 
     void delete(int index) {
-        for (int i = index; i < array.length - 1; i++) {
-            array[i] = array[i + 1];
+        if (index >= size || index < 0) {
+            System.out.println("No element at this index");
+        } else {
+            for (int i = index; i < size - 1; i++) {
+                array[i] = array[i + 1];
+            }
+            array[size - 1] = 0;
+            size--;
         }
     }
 
