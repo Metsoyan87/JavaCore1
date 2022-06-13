@@ -13,7 +13,7 @@ public class DynamicArray {
         array[size++] = value;
     }
 
-    //++++
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Գրել մեթոդ isEmpty անունով, որը կվերադարձնի true եթե մեր
     // dynamicArray-ի մեջ չունենանք ոչ մի էլեմենտ. Եթե ունենք՝ false
     boolean isEmpty() {
