@@ -5,6 +5,7 @@ public class DynamicArray {
     private int[] array = new int[10];
     private int size = 0;
 
+
     public void add(int value) {
         if (array.length == size) {
             extend();
@@ -16,13 +17,10 @@ public class DynamicArray {
     // Գրել մեթոդ isEmpty անունով, որը կվերադարձնի true եթե մեր
     // dynamicArray-ի մեջ չունենանք ոչ մի էլեմենտ. Եթե ունենք՝ false
     boolean isEmpty() {
-        if (size > 0) {
-            return false;
-        }
-        return true;
+        return size == 0;
     }
 
-    // ++++
+    // +++++++++++++++++++++++++++++++++++++++++++++++++
     //Գրել մեթոդ getByIndex անունով, որը կընդունի ինդեքս,
     // և կվերադարձնի այդ ինդեքսի տակ ընկած թիվը,
     // եթե չկա թող վերադարձնի 0;
@@ -35,7 +33,7 @@ public class DynamicArray {
         return value;
     }
 
-    //++++
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //Գրել մեթոդ getFirstIndexByValue, որը կընդունի int value,
     // և եթե մեր մասիվի մեջ ունենք այդ թվից, կվերադարձնի իր ինդեքսը. եթե շատ ունենք,
     // պետք է վերադարձնել առաջինի ինդեքսը
@@ -48,7 +46,7 @@ public class DynamicArray {
         return 0;
     }
 
-    //++++
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //Գրել մեթոդ set անունով, որը կընդունի int index, int value
     // և վալյուն կդնի տրված ինդեքսի տեղը(կփոխարինի էղած արժեքին).
     void set(int index, int value) {
@@ -59,19 +57,19 @@ public class DynamicArray {
         }
     }
 
-    //++++
+    //++++++++++++++++++++++++++++++++++++++++++++++
     //Գրել մեթոդ add(int index, int value) որը տրված
     // վելյուն կդնի տրված ինդեքսի տեղը, իսկ էղած
     // թիվը ու կողքի բոլոր թվերը կտանի աջ, ոչ մի թիվ չի կորի
     void add(int index, int value) {
-        for (int i = 0; i < array.length; i++) {
-            if (index == i) {
-                array[i + 1] = array[i];
-                array[i] = value;
-            }
+        for (int i = size - 1; i >= index; i--) {
+            array[i + 1] = array[i];
         }
+
+        array[index] = value;
+        size++;
     }
-    //++++
+    //+++++++++++++++++++++++++++++++++++++++++++++
     // Գրել մեթոդ delete(int index) որ տանք ինդեքսը,
     // այդ ինդեքսի տակ գտնվող թիվը հեռացնի մասիվից.
     // (նոր մասիվ պետք չէ սարքել)
