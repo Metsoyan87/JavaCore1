@@ -26,13 +26,13 @@ public class DynamicArray {
     //Գրել մեթոդ getByIndex անունով, որը կընդունի ինդեքս,
     // և կվերադարձնի այդ ինդեքսի տակ ընկած թիվը,
     // եթե չկա թող վերադարձնի 0;
-    public int getByIndex(int index) {
-        int value = -1;
-        if (index < array.length) {
-            value = array[index];
-            return value;
+    int getByIndex(int index) {
+        if (index == -1 || index > array.length) {
+            return 0;
         }
-        return 0;
+        int value = 0;
+        value = array[index];
+        return value;
     }
 
     //++++
