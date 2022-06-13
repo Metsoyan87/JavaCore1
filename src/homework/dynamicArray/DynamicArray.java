@@ -42,7 +42,6 @@ public class DynamicArray {
     int getFirstIndexByValue(int value) {
         for (int i = 0; i < array.length; i++) {
             if (value == array[i]) {
-                value = array[i];
                 return i;
             }
         }
