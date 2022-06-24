@@ -34,23 +34,13 @@ public class StudentDemo {
                     System.out.println(studentStorage.getSize());
                     break;
                 case 4:
-                    studentStorage.print();
-                    System.out.println("Please choose student index");
-                    int index = Integer.parseInt(scanner.nextLine());
-                    studentStorage.delete(index);
+                    deleted();
                     break;
                 case 5:
-                    System.out.println("Please input lesson name");
-                    String lessonName = scanner.nextLine();
-                    studentStorage.printStudentsByLesson(lessonName);
+                    searchByLesson();
                     break;
                 case 6:
-                    studentStorage.print();
-                    System.out.println("student index");
-                    int number = Integer.parseInt(scanner.nextLine());
-                    System.out.println("Enter new lesson name");
-                    String ln = scanner.nextLine();
-                    studentStorage.updateLesson(number,ln);
+                    changeLesson();
                     break;
                 default:
                     System.out.println("Invalid command, please try again");
@@ -81,7 +71,27 @@ public class StudentDemo {
 
         System.out.println("student object:");
         System.out.println(student);
+    }
 
+    static void changeLesson() {
+        studentStorage.print();
+        System.out.println("student index");
+        int number = Integer.parseInt(scanner.nextLine());
+        System.out.println("Enter new lesson name");
+        String updateName = scanner.nextLine();
+        studentStorage.updateLesson(number, updateName);
+    }
 
+    static void searchByLesson() {
+        System.out.println("Please input lesson name");
+        String lessonName = scanner.nextLine();
+        studentStorage.printStudentsByLesson(lessonName);
+    }
+
+    static void deleted() {
+        studentStorage.print();
+        System.out.println("Please choose student index");
+        int index = Integer.parseInt(scanner.nextLine());
+        studentStorage.delete(index);
     }
 }
