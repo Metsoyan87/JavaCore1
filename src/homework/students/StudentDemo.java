@@ -9,6 +9,11 @@ public class StudentDemo {
 
     public static void main(String[] args) {
         boolean run = true;
+
+        studentStorage.add(new Student("Poxos", "Poxosyan", 22, "093949508", "Gyumri", "Java"));
+        studentStorage.add(new Student("Sargis", "Sargsyan", 13, "033949508", "Erevan", "SQL"));
+        studentStorage.add(new Student("Petros", "Petrosyan", 16, "098556595", "Ijevan", "PHP"));
+
         while (run) {
             System.out.println("please input 0 for exit");
             System.out.println("please input 1 for add student");
@@ -40,7 +45,7 @@ public class StudentDemo {
                     searchByLesson();
                     break;
                 case 6:
-                    changeLesson();
+                    changeStudentLesson();
                     break;
                 default:
                     System.out.println("Invalid command, please try again");
@@ -73,13 +78,22 @@ public class StudentDemo {
         System.out.println(student);
     }
 
-    static void changeLesson() {
+    static void changeStudentLesson() {
         studentStorage.print();
-        System.out.println("student index");
-        int number = Integer.parseInt(scanner.nextLine());
-        System.out.println("Enter new lesson name");
-        String updateName = scanner.nextLine();
-        studentStorage.updateLesson(number, updateName);
+        System.out.println("Please choose student index");
+        int index = Integer.parseInt(scanner.nextLine());
+        Student student = studentStorage.getStudentByIndex(index);
+        if (student != null) {
+            System.out.println("Please input new lesson name");
+            String lessonName = scanner.nextLine();
+            if (lessonName != null && !lessonName.trim().equals("")) {
+                student.setLesson(lessonName.trim());
+                System.out.println("lesson changed for student" + student.getName() + " " + student.getSurname());
+            }
+        } else {
+            System.out.println("invalid index try again");
+            changeStudentLesson();
+        }
     }
 
     static void searchByLesson() {
