@@ -50,16 +50,31 @@ public class StudentStorage {
         }
 
     }
+//    updateLesson
+//    public updateLesson(int index, String lessonName) {
+//        if (index >= 0 && index < size) {
+//            for (int i = index; i < size; i++) {
+//
+//
+//                array[i].setLesson(lessonName);
+//                break;
+//            }
+//        }
+//
+//    }
 
-    public void updateLesson(int number, String ln) {
-        if (number >= 0 && number < size) {
-            for (int i = number; i < size; i++) {
-                array[i].setLesson(ln);
-                break;
-            }
+    public Student getStudentByIndex(int index) {
+        if (index >= 0 && index < size) {
+            return array[index];
+
         }
+        return null;
     }
 }
+
+
+
+
 
 
 
