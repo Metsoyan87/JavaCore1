@@ -12,7 +12,7 @@ public class BookDemo implements Commands {
 
         bookStorage.add(new Book("Samvel", "Raffi", 52.45, 0, "Hayrenasirakan"));
         bookStorage.add(new Book("girq", "Sevak", 62.15, 1, "Epos"));
-        bookStorage.add(new Book("Xachagoxi Hishatakaran", "Raffi", 102.52, 2, "Vep"));
+        bookStorage.add(new Book("Verq Hayastani", "Abovyan", 102.52, 2, "Patmakan"));
 
 
         while (run) {
