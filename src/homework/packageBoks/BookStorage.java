@@ -51,7 +51,7 @@ public class BookStorage {
     public void printBooksByPriceRange(double price, double range) {
 
         for (int i = 0; i < size; i++) {
-            if (array[i].getPrice() > price && array[i].getPrice() > range) {
+            if (array[i].getPrice() > price && array[i].getPrice() < range) {
                 System.out.println(array[i]);
             }
         }
