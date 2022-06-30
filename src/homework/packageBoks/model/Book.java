@@ -63,7 +63,7 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "title='" + title + '\'' +
-                ", author=" + author +
+                ", author=" + author.getName() +
                 ", price=" + price +
                 ", count=" + count +
                 ", genre='" + genre + '\'' +
