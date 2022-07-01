@@ -85,44 +85,42 @@ public class BookDemo implements Commands {
 
     }
 
-    private static void addBook() {
+   private static void addBook() {
 
-        if (authorStorage.getSize() == 0) {
-            System.out.println("Please add book");
-            addAuthor();
-        } else {
+        System.out.println("Please input book title");
+        String title = scanner.nextLine();
+        System.out.println("Please input author name");
+        String name = scanner.nextLine();
 
-            authorStorage.print();
+        System.out.println("Please input author surname");
+        String surname = scanner.nextLine();
 
-            System.out.println("please choose author index");
-            int authorIndex = Integer.parseInt(scanner.nextLine());
+        System.out.println("Please input author email");
+        String email = scanner.nextLine();
 
-            Author author = authorStorage.getAuthorByIndex(authorIndex);
-            if (author == null) {
-                System.out.println("please input correct index");
-                addBook();
-            } else {
+        System.out.println("Please input author gender MALE or FEMALE");
+        String gender = scanner.nextLine();
 
-                System.out.println("Please input book title");
-                String title = scanner.nextLine();
-                System.out.println("Please input book author");
-                String authorName = scanner.nextLine();
-                System.out.println("Please input book price");
-                String priceStr = scanner.nextLine();
-                System.out.println("Please input book count");
-                String countStr = scanner.nextLine();
-                System.out.println("Please input book genre");
-                String genre = scanner.nextLine();
+        Author author = new Author(name, surname, email, gender);
+        authorStorage.add(author);
+        System.out.println("author created!");
 
-                double price = Double.parseDouble(priceStr);
-                int count = Integer.parseInt(countStr);
+        System.out.println("Please input book price");
+        String priceStr = scanner.nextLine();
+        System.out.println("Please input book count");
+        String countStr = scanner.nextLine();
+        System.out.println("Please input book genre");
+        String genre = scanner.nextLine();
+        System.out.println("Please input new author ");
 
-                Book book = new Book(title, author, price, count, genre);
-                bookStorage.add(book);
-                System.out.println("Thank you, book added");
-            }
-        }
 
+        double price = Double.parseDouble(priceStr);
+        int count = Integer.parseInt(countStr);
+
+
+        Book book = new Book(title, price, count, genre, author);
+        bookStorage.add(book);
+        System.out.println("Thank you, book added");
     }
 
     static void searchByBook() {
