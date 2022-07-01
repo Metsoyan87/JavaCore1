@@ -88,7 +88,7 @@ public class BookDemo implements Commands {
     private static void addBook() {
 
         if (authorStorage.getSize() == 0) {
-            System.out.println("Please add lesson");
+            System.out.println("Please add book");
             addAuthor();
         } else {
 
