@@ -111,7 +111,7 @@ public class BookDemo implements Commands {
         String countStr = scanner.nextLine();
         System.out.println("Please input book genre");
         String genre = scanner.nextLine();
-        System.out.println("Please input new author ");
+       
 
 
         double price = Double.parseDouble(priceStr);
