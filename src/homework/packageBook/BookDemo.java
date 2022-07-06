@@ -113,15 +113,22 @@ public class BookDemo implements Commands,Login{
         String email = scanner.nextLine();
 
         System.out.println("Please input author gender " + Gender.MALE + " or " + Gender.FEMALE);
-        String gender = scanner.nextLine();
-
-        if (gender.equalsIgnoreCase(String.valueOf(Gender.MALE))
-                || gender.equalsIgnoreCase(String.valueOf(Gender.FEMALE))) {
-        } else {
-            System.out.println("please input gender MALE OR FEMALE ");
+        String genderStr = scanner.nextLine();
+        try {
+            Gender gender = Gender.valueOf(genderStr.toUpperCase());
+        }catch (IllegalArgumentException e){
+            System.out.println("Please input MALE or Female");
             addAuthor();
         }
-        Author author = new Author(name, surname, email, gender);
+
+
+//        if (genderStr.equalsIgnoreCase(String.valueOf(Gender.MALE))
+//                || genderStr.equalsIgnoreCase(String.valueOf(Gender.FEMALE))) {
+//        } else {
+//            System.out.println("please input gender MALE OR FEMALE ");
+//            addAuthor();
+//        }
+        Author author = new Author(name, surname, email, genderStr);
         authorStorage.add(author);
         System.out.println("author created!");
 
