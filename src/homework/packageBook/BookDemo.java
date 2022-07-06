@@ -13,13 +13,15 @@ import homework.packageBook.storage.BookStorage;
 
 import java.util.Scanner;
 
-public class BookDemo implements Commands, Login {
+public class BookDemo implements Commands,Login{
 
     private static Scanner scanner = new Scanner(System.in);
     private static BookStorage bookStorage = new BookStorage();
     private static AuthorStorage authorStorage = new AuthorStorage();
 
     public static void main(String[] args) {
+        boolean run = true;
+
         Author Sevak = new Author("Paruyr", "Sevak", "sevak@mail.ru", "MALE");
         authorStorage.add(Sevak);
         Author Viliam = new Author("Viliam", "Saroyan", "saroyan@mail.ru", "MALE");
@@ -34,9 +36,8 @@ public class BookDemo implements Commands, Login {
         bookStorage.add(new Book("Hayastan", 102.52, 2, "Patmakan", Silva));
         bookStorage.add(new Book("Verq", 12.54, 7, "Patmakan", aaa));
 
-        boolean run = false;
 
-        do {
+
             System.out.println("Please enter login");
             String login = scanner.nextLine();
             System.out.println("Please enter password");
@@ -45,55 +46,57 @@ public class BookDemo implements Commands, Login {
 
             if (login.equals(Login.LOGIN) && password.equals(Login.PASSWORD)) {
                 System.out.println("welcome");
-                run = false;
-            } else {
                 run = true;
+            } else {
+                run = false;
             }
 
-        } while (run);
 
-        Commands.printCommand();
-        int command;
-        try {
-            command = Integer.parseInt(scanner.nextLine());
-        } catch (NumberFormatException e) {
-            command = -1;
-        }
+        while (run) {
 
-        switch (command) {
-            case EXIT:
-                run = false;
-                break;
-            case ADD_BOOK:
-                addBook();
-                break;
-            case PRINT_ALL_Books:
-                bookStorage.print();
-                break;
-            case PRINT_BOOKS_BY_AUTHOR_NAME:
-                searchByBook();
-                break;
-            case PRINT_BOOKS_BY_GENRE:
-                searchByGenre();
-                break;
-            case PRINT_BOOKS_BY_PRICE_RANGE:
-                booksByPrice();
-                break;
-            case ADD_AUTHOR:
-                addAuthor();
-                break;
-            case PRINT_ALL_AUTHORS:
-                authorStorage.print();
-                break;
-            case SEARCH_AUTHOR_BY_INDEX:
-                authorByIndex();
-                break;
-            case CHANGE_BOOK_LESSON:
-                changeBookAuthor();
-                break;
-            default:
-                System.out.println("Invalid command, please try again");
+            Commands.printCommand();
+            int command;
+            try {
+                command = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                command = -1;
+            }
 
+            switch (command) {
+                case EXIT:
+                    run = false;
+                    break;
+                case ADD_BOOK:
+                    addBook();
+                    break;
+                case PRINT_ALL_Books:
+                    bookStorage.print();
+                    break;
+                case PRINT_BOOKS_BY_AUTHOR_NAME:
+                    searchByBook();
+                    break;
+                case PRINT_BOOKS_BY_GENRE:
+                    searchByGenre();
+                    break;
+                case PRINT_BOOKS_BY_PRICE_RANGE:
+                    booksByPrice();
+                    break;
+                case ADD_AUTHOR:
+                    addAuthor();
+                    break;
+                case PRINT_ALL_AUTHORS:
+                    authorStorage.print();
+                    break;
+                case SEARCH_AUTHOR_BY_INDEX:
+                    authorByIndex();
+                    break;
+                case CHANGE_BOOK_LESSON:
+                    changeBookAuthor();
+                    break;
+                default:
+                    System.out.println("Invalid command, please try again");
+
+            }
         }
     }
 
