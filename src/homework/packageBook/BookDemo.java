@@ -1,7 +1,6 @@
 package homework.packageBook;
 
 import homework.packageBook.commands.Commands;
-import homework.packageBook.commands.Login;
 import homework.packageBook.enums.Gender;
 import homework.packageBook.exception.AuthorNotFoundException;
 import homework.packageBook.model.Author;
@@ -13,44 +12,40 @@ import homework.packageBook.storage.BookStorage;
 
 import java.util.Scanner;
 
-public class BookDemo implements Commands,Login{
+public class BookDemo implements Commands {
 
     private static Scanner scanner = new Scanner(System.in);
     private static BookStorage bookStorage = new BookStorage();
     private static AuthorStorage authorStorage = new AuthorStorage();
 
+
     public static void main(String[] args) {
         boolean run = true;
 
-        Author Sevak = new Author("Paruyr", "Sevak", "sevak@mail.ru", "MALE");
+        Author Sevak = new Author("Paruyr", "Sevak", "sevak@mail.ru", Gender.MALE);
         authorStorage.add(Sevak);
-        Author Viliam = new Author("Viliam", "Saroyan", "saroyan@mail.ru", "MALE");
+        Author Viliam = new Author("Viliam", "Saroyan", "saroyan@mail.ru", Gender.MALE);
         authorStorage.add(Viliam);
-        Author Silva = new Author("Silva", "Kaputikyan", "Kaputikyan@mail.ru", "FEMALE");
+        Author Silva = new Author("Silva", "Kaputikyan", "Kaputikyan@mail.ru", Gender.FEMALE);
         authorStorage.add(Silva);
-        Author aaa = new Author("aaa", "aaa", "aaa", "aaa");
-        authorStorage.add(aaa);
+
 
         bookStorage.add(new Book("Samvel", 52.45, 0, "Hayrenasirakan", Sevak));
         bookStorage.add(new Book("girq", 62.15, 1, "Epos", Viliam));
         bookStorage.add(new Book("Hayastan", 102.52, 2, "Patmakan", Silva));
-        bookStorage.add(new Book("Verq", 12.54, 7, "Patmakan", aaa));
 
 
+        System.out.println("Please enter login");
+        String loginStr = scanner.nextLine();
+        System.out.println("Please enter password");
+        String passwordStr = scanner.nextLine();
+        User user = new User();
 
-            System.out.println("Please enter login");
-            String login = scanner.nextLine();
-            System.out.println("Please enter password");
-            String password = scanner.nextLine();
-            User user = new User(login, password);
-
-            if (login.equals(Login.LOGIN) && password.equals(Login.PASSWORD)) {
-                System.out.println("welcome");
-                run = true;
-            } else {
-                run = false;
-            }
-
+        if (loginStr.equals(user.getLogin()) && passwordStr.equals(user.getPassword())) {
+            System.out.println("welcome");
+            run = true;
+        } else
+            run = false;
 
         while (run) {
 
@@ -95,10 +90,10 @@ public class BookDemo implements Commands,Login{
                     break;
                 default:
                     System.out.println("Invalid command, please try again");
-
             }
         }
     }
+
 
 
     private static void addAuthor() {
@@ -113,27 +108,19 @@ public class BookDemo implements Commands,Login{
         String email = scanner.nextLine();
 
         System.out.println("Please input author gender " + Gender.MALE + " or " + Gender.FEMALE);
-        String genderStr = scanner.nextLine();
+
         try {
-            Gender gender = Gender.valueOf(genderStr.toUpperCase());
-        }catch (IllegalArgumentException e){
+            Gender genderStr = Gender.valueOf(scanner.nextLine());
+            Author author = new Author(name, surname, email, genderStr);
+            authorStorage.add(author);
+            System.out.println("author created!");
+        } catch (IllegalArgumentException e) {
             System.out.println("Please input MALE or Female");
             addAuthor();
         }
 
 
-//        if (genderStr.equalsIgnoreCase(String.valueOf(Gender.MALE))
-//                || genderStr.equalsIgnoreCase(String.valueOf(Gender.FEMALE))) {
-//        } else {
-//            System.out.println("please input gender MALE OR FEMALE ");
-//            addAuthor();
-//        }
-        Author author = new Author(name, surname, email, genderStr);
-        authorStorage.add(author);
-        System.out.println("author created!");
-
     }
-
     private static void changeBookAuthor() {
         bookStorage.print();
         System.out.println("Please choose book index");
@@ -188,7 +175,6 @@ public class BookDemo implements Commands,Login{
         }
     }
 
-
     static void searchByBook() {
         System.out.println("Please input book author name");
         String authorName = scanner.nextLine();
@@ -217,8 +203,5 @@ public class BookDemo implements Commands,Login{
         } catch (AuthorNotFoundException | IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
-
     }
-
-
 }
