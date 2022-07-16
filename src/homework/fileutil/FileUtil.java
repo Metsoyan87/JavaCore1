@@ -152,20 +152,17 @@ public class FileUtil {
     // որպես արդյունք պապկի մեջ սարքելու է նոր ֆայլ, իրա մեջ էլ լինելու է content-ով տվածը
     static void createFileWithContent() {
 
-        System.out.println("please input path");
+       System.out.println("please input path");
         String path = scanner.nextLine();
-        System.out.println("please input file name");
-        String fileNamePath = scanner.nextLine();
+        System.out.println("please input file name \\896523.txt");
+        String fileName = scanner.nextLine();
         System.out.println("please input content");
         String content = scanner.nextLine();
-        File file = new File(path);
-//        File file1 = new File(fileNamePath);
-
+        String s = path + fileName;
+        File file = new File(s);
         if (!file.exists()) {
             try {
-                file.createNewFile(); // stex filname@ chi @ndune vortev String guka,
-                                          // bayc dzerqov pat@ talu het or anun e kutas kashxati
-
+                file.createNewFile();
                 BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
                 bufferedWriter.write(content);
                 bufferedWriter.close();
@@ -175,4 +172,5 @@ public class FileUtil {
         }
     }
 }
+
 
