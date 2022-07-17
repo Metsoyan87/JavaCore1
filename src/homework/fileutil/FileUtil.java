@@ -28,13 +28,13 @@ public class FileUtil {
     // 2 - fileName - ֆայլի անունը, որը փնտրում ենք։
     //Որպես արդյունք պտի ծրագիրը տպի true եթե կա էդ ֆայլը էդ պապկի մեջ, false եթե չկա։
     static void fileSearch() {
-
+        int flag = 0;
         System.out.println("please input path");
         String path = scanner.nextLine();
         System.out.println("please input file name");
         String fileName = scanner.nextLine();
         File file = new File(path);
-        if (!file.exists() || file.isFile()) {
+        if (!file.isDirectory() || file.isFile()) {
             System.out.println(false);
         }
         File[] files = file.listFiles();
@@ -44,9 +44,11 @@ public class FileUtil {
         for (File file1 : files) {
             if (file1.getName().equals(fileName)) {
                 System.out.println(true);
-            } else {
-                System.out.println(false);
+                flag = 1;
             }
+        }
+        if (flag == 0) {
+            System.out.println(false);
         }
     }
 
