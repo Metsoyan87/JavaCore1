@@ -71,9 +71,6 @@ public class FileUtil {
         } else {
             File[] files = file.listFiles();
             for (File file1 : files) {
-                if (file1.isDirectory() && file1.list().length > 0) {
-                    contentSearch();
-                }
                 if (file1.getName().endsWith(".txt")) {
                     try (BufferedReader inputStream = new BufferedReader(new FileReader(file1))) {
                         String line = "";
