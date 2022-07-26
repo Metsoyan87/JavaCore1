@@ -34,9 +34,10 @@ public class MapExample {
     }
 
     //Մեթոդի մեջ պետք է տրված մապ-ից ջնջենք removedNumber համարը եթե կա, ու վերադարձնենք true, եթե չկա վերադարձնենք false
-    static boolean removeFromMap(Map<Integer, String> memberMap, Integer removedNumber) {
-        String remove = memberMap.remove(removedNumber);
-        System.out.println(remove);
+   if (memberMap.keySet().contains(removedNumber)) {
+            memberMap.remove(removedNumber);
+            return true;
+        }
         return false;
     }
 
