@@ -67,11 +67,9 @@ public class CollectionExample {
 
     // մեթոդը գրել այնպես, որ ընդունի ցանկացած Integer-ների լիստ, վերադարձնի նույն արժեքներով LinkedList-ի օբյեկտ։ ++++
     static LinkedList<Integer> listToLinkedList(List<Integer> list) {
-        List<Integer> listInt = new LinkedList<>(list);
-        for (Integer integer : listInt) {
-            System.out.print(integer + " ");
-        }
-        return null;
+    List<Integer> listInt = new LinkedList<>(list);
+        System.out.print(listInt);
+           return null;
     }
 
     // մեթոդը գրել այնպես, որ ընդունի ցանկացած Integer-ների լիստ, վերադարձնի նոր լիստ, ++++
