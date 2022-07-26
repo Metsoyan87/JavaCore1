@@ -28,8 +28,10 @@ public class CollectionExample {
         intList.add(3);
         intList.add(4);
         intList.add(5);
+        intList.add(6);
+        intList.add(7);
+        intList.add(17);
         System.out.println();
-
         listToLinkedList(intList);
 
         System.out.println();
@@ -41,7 +43,7 @@ public class CollectionExample {
 
     }
 
-    //մեթոդը գրել այնպես, որ կանչենք, ու իրան ստրինգների մասիվ տանք, ինքը վերադարձնի նույն էլեմենտներով ArrayList
+    //մեթոդը գրել այնպես, որ կանչենք, ու իրան ստրինգների մասիվ տանք, ինքը վերադարձնի նույն էլեմենտներով ArrayList ++++
     static List<String> arrayToList(String[] values) {
         List<String> list = Arrays.asList(values);
 
@@ -51,22 +53,19 @@ public class CollectionExample {
     //մեթոդը գրել այնպես, որ կանչենք ու տանք ինչ որ լիստ, ու ինդեքս, ինքը ջնջե էդ ինդեքսի տակ գտնվող էլեմենտը, ++++++
     // ու վերադարձնե նույն լիստը, առանց էդ էլեմենտի։
     static List<String> removeById(List<String> list, int index) {
-        list.remove(5);
+        list.remove(index);
         return list;
     }
 
-    // մեթոդը գրել այնպես, որ ընդունի ցանկացած String-ների լիստ, վերադարձնի նույն արժեքներով HashSet
+    // մեթոդը գրել այնպես, որ ընդունի ցանկացած String-ների լիստ, վերադարձնի նույն արժեքներով HashSet ++++
     static Set<String> listToSet(List<String> list) {
         Set<String> set = new HashSet<>(list);
-        for (String x : set) {
-            set.add(x);
-        }
         for (String x : set)
             System.out.print(x + " ");
         return null;
     }
 
-    // մեթոդը գրել այնպես, որ ընդունի ցանկացած Integer-ների լիստ, վերադարձնի նույն արժեքներով LinkedList-ի օբյեկտ։
+    // մեթոդը գրել այնպես, որ ընդունի ցանկացած Integer-ների լիստ, վերադարձնի նույն արժեքներով LinkedList-ի օբյեկտ։ ++++
     static LinkedList<Integer> listToLinkedList(List<Integer> list) {
         List<Integer> listInt = new LinkedList<>(list);
         for (Integer integer : listInt) {
@@ -75,7 +74,7 @@ public class CollectionExample {
         return null;
     }
 
-    // մեթոդը գրել այնպես, որ ընդունի ցանկացած Integer-ների լիստ, վերադարձնի նոր լիստ,
+    // մեթոդը գրել այնպես, որ ընդունի ցանկացած Integer-ների լիստ, վերադարձնի նոր լիստ, ++++
     // որի մեջ էլեմենտները կլինեն հակառակ հերթականությամբ։
     static List<Integer> reverseNumbers(List<Integer> list) {
         Collections.reverse(list);
@@ -87,14 +86,14 @@ public class CollectionExample {
     }
 
 
-    // մեթոդը գրել այնպես, որ ինչ մեծությամբ լիստ էլ տանք էս մեթոդին, ինքը տպե մենակ սկզբի 5 հատը։
+    // մեթոդը գրել այնպես, որ ինչ մեծությամբ լիստ էլ տանք էս մեթոդին, ինքը տպե մենակ սկզբի 5 հատը։ ++++++
     static void printFirstFive(List<String> list) {
         List<String> strings = list.subList(0, 5);
         System.out.println(strings);
     }
 
 
-    // մեթոդը գրել այնպես, որ ինչ list տանք վերադարձնի թե քանի էլեմենտ կա էդ լիստ-ի մեջ
+    // մեթոդը գրել այնպես, որ ինչ list տանք վերադարձնի թե քանի էլեմենտ կա էդ լիստ-ի մեջ ++++
     static int sizeOfList(List<String> list) {
         int size = list.size();
         return size;
